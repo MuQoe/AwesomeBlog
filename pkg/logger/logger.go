@@ -2,6 +2,7 @@ package logger
 
 import (
 	global "AwesomeBlog/globals"
+	"github.com/gin-gonic/gin"
 	"net"
 	"net/http"
 	"net/http/httputil"
@@ -10,7 +11,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/gin-gonic/gin"
 	"github.com/natefinch/lumberjack"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
