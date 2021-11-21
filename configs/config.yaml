@@ -1,0 +1,47 @@
+Server:
+  RunMode: debug
+  HttpPort: 8000
+  ReadTimeout: 60
+  WriteTimeout: 60
+
+App:
+  DefaultPageSize: 10
+  MaxPageSize: 100
+  LogMaxSize: 100
+  LogMaxAge: 30
+  LogMaxBackups: 7
+  LogSavePath: logs
+  LogFileName: blog
+  LogFileExt: .log
+  LogLevel: debug
+
+Database:
+  DBType: mysql
+  Username: test_account
+  Password: Test_account
+  Host: rm-bp17ta209ggzi6t1mqo.mysql.rds.aliyuncs.com:3306
+  DBName: blog_test
+  TablePrefix: blog_
+  Charset: utf8
+  ParseTime: True
+  MaxIdleConns: 10
+  MaxOpenConns: 30
+
+log:
+  level: "debug"
+  filename: "./logs/blog.log"
+  max_size: 200
+  max_age: 30
+  max_backups: 7
+
+mysql:
+  host: "rm-bp17ta209ggzi6t1mqo.mysql.rds.aliyuncs.com"
+  port: 3306
+  user: "test_account"
+  password: "Test_account"
+  dbname: "blog_test"
+
+redis:
+  host: "127.0.0.1"
+  port: 16379
+  db: 0
