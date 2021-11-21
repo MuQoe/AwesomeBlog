@@ -2,10 +2,10 @@ package main
 
 import (
 	"AwesomeBlog/internal/app"
+	"github.com/kardianos/service"
 	"go.uber.org/zap"
 	"log"
 	"time"
-	"github.com/kardianos/service"
 )
 
 // the main entry point
