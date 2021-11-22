@@ -23,3 +23,21 @@ type User struct {
 	Token         string         `json:"token"`                                            // 用户的token数据
 	LoginTime     time.Time      `json:"login_time"`                                       // 用户登录的时间                               //登录信息（用于身份验证）
 }
+
+func (u User) GetUser(db *gorm.DB, userID uint) (*User, error) {
+	var find_user User
+	err := db.Find(&find_user, "id = ?", userID).Error
+	return &find_user, err
+}
+
+func (u User) CreateUser(db *gorm.DB) error {
+	return db.Create(&u).Error
+}
+
+func (u User) UpdateUser(db *gorm.DB, values interface{}) error {
+	return db.Model(&u).Where("id = ?", u.ID).Updates(values).Error
+}
+
+func (u User) DeleteUser(db *gorm.DB) error {
+	return db.Where("id = ?", u.ID).Delete(&u).Error
+}
