@@ -12,10 +12,9 @@ func NewIndex() Index {
 }
 
 func (i Index) Get(ctx *gin.Context) {
-	rsp := Response.NewResponse(ctx)
 	data := gin.H{
 		"message": "index api",
 	}
-	rsp.ToResponse(data)
+	Response.GlobalResponse.ResponseOk(ctx, data)
 	return
 }
