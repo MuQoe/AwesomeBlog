@@ -2,7 +2,9 @@ package database
 
 import (
 	global "AwesomeBlog/globals"
+	"AwesomeBlog/internal/app/model"
 	"fmt"
+
 	"go.uber.org/zap"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -43,7 +45,16 @@ func NewDBEngine(databaseSetting *global.DatabaseSettingStructure) (*gorm.DB, er
 }
 
 func initDataBase() {
-
+	needMigrate := []interface{}{
+		&model.User{},
+	}
+	for _, v := range needMigrate {
+		err := global.DBEngine.AutoMigrate(v)
+		if err != nil {
+			zap.S().Warn(err)
+			return
+		}
+	}
 }
 func initRedisConnection() {
 
@@ -52,7 +63,7 @@ func initRedisConnection() {
 func Init() (err error) {
 	global.DBEngine, err = NewDBEngine(global.DatabaseSetting)
 	// 如果有需要初始化数据库
-	// initDataBase()
+	initDataBase()
 	// 初始化Redis链接
 	// initRedisConnection()
 	return err

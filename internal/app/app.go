@@ -8,19 +8,15 @@ import (
 	"AwesomeBlog/pkg/database"
 	"AwesomeBlog/pkg/logger"
 	"fmt"
-	"github.com/gin-gonic/gin"
-	"go.uber.org/zap"
 	"math/rand"
 	"net/http"
 	"time"
+
+	"github.com/gin-gonic/gin"
+	"go.uber.org/zap"
 )
 
 var GinEngine *gin.Engine
-
-const (
-	ADMINISTRATOR = iota
-	USER
-)
 
 // Init 初始化
 func Init() {
