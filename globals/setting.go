@@ -21,6 +21,7 @@ type AppSettingStructure struct {
 	LogFileName     string
 	LogFileExt      string
 	LogLevel        string
+	TokenSecret     string
 }
 type DatabaseSettingStructure struct {
 	DBType       string

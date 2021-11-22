@@ -14,6 +14,7 @@ App:
   LogFileName: blog
   LogFileExt: .log
   LogLevel: debug
+  TokenSecret: pl5u14Yyyr&WAxrvOpl5u14Y
 
 Database:
   DBType: mysql
@@ -26,22 +27,3 @@ Database:
   ParseTime: True
   MaxIdleConns: 10
   MaxOpenConns: 30
-
-log:
-  level: "debug"
-  filename: "./logs/blog.log"
-  max_size: 200
-  max_age: 30
-  max_backups: 7
-
-mysql:
-  host: "rm-bp17ta209ggzi6t1mqo.mysql.rds.aliyuncs.com"
-  port: 3306
-  user: "test_account"
-  password: "Test_account"
-  dbname: "blog_test"
-
-redis:
-  host: "127.0.0.1"
-  port: 16379
-  db: 0
