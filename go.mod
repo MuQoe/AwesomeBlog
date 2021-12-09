@@ -3,9 +3,9 @@ module AwesomeBlog
 go 1.16
 
 require (
-	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gin-gonic/gin v1.7.2
 	github.com/go-playground/validator/v10 v10.4.1
+	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/kardianos/service v1.2.0
 	github.com/natefinch/lumberjack v2.0.0+incompatible
 	github.com/spf13/viper v1.9.0

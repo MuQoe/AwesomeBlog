@@ -5,9 +5,7 @@ import (
 	"crypto/sha256"
 	"encoding/base64"
 	"math/rand"
-	"time"
 
-	"github.com/dgrijalva/jwt-go"
 	"golang.org/x/crypto/pbkdf2"
 )
 
@@ -25,23 +23,4 @@ func GetRandomNum(n int) string {
 		data += randomStr[rand.Intn(len(randomStr))]
 	}
 	return data
-}
-
-// JwtCreateToken jwt生成token
-func JwtCreateToken() (string, error) {
-	// 创建token
-	token := jwt.New(jwt.SigningMethodHS256)
-
-	//设置属性
-	claims := token.Claims.(jwt.MapClaims)
-	claims["Name"] = "Blog"
-	claims["admin"] = false
-	claims["exp"] = time.Now().Add(time.Hour * 72).Unix()
-
-	//生成token字符串
-	t, err := token.SignedString([]byte("secret"))
-	if err != nil {
-		return "", err
-	}
-	return t, nil
 }

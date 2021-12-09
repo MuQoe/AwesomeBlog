@@ -12,4 +12,7 @@ func UserRouter(e *gin.Engine) {
 
 	// 用户注册
 	e.POST(base, UserAPI.Create)
+	//用户登陆
+	e.POST(base+"/login", UserAPI.Login)
+
 }

@@ -46,7 +46,8 @@ func NewDBEngine(databaseSetting *global.DatabaseSettingStructure) (*gorm.DB, er
 
 func initDataBase() {
 	needMigrate := []interface{}{
-		&model.User{},
+		&model.UserModel{},
+		&model.UserSessionModel{},
 	}
 	for _, v := range needMigrate {
 		err := global.DBEngine.AutoMigrate(v)
