@@ -20,7 +20,7 @@ type Claims struct {
 
 // 判断用户是否有权限访问
 func Auth(c *gin.Context) {
-	tokenString, _ := c.Cookie("token")
+	tokenString := c.GetHeader("token")
 	if tokenString == "" {
 		Response.GlobalResponse.ResponseUnauthorized(c, "Auth Needed")
 		c.Abort()

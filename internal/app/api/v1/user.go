@@ -1,7 +1,6 @@
 package v1
 
 import (
-	global "AwesomeBlog/globals"
 	"AwesomeBlog/internal/app/model"
 	"AwesomeBlog/internal/app/model/Auth"
 	"AwesomeBlog/pkg/Response"
@@ -59,9 +58,9 @@ func (u UserAPI) Login(c *gin.Context) {
 		Response.GlobalResponse.ResponseServerError(c, "User Token 保存失败")
 		return
 	}
-	Response.GlobalResponse.ResponseCreated(c, Token)
+	Response.GlobalResponse.ResponseCreated(c, UserSession)
 
-	c.SetCookie("token", Token, 60*60*24, "/", global.ServerSetting.Domain, false, false)
+	// c.SetCookie("token", Token, 60*60*24, "/", global.ServerSetting.Domain, false, false)
 	return
 
 	// TODO add User activate check
